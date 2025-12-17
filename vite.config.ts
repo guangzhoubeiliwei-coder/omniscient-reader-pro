@@ -5,8 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // No base path needed for GitHub Actions deployment
-  // base: mode === 'production' ? '/omniscient-reader-pro/' : '/',
+  // Base path IS required for GitHub Pages subdirectory deployment
+  base: mode === 'production' ? '/omniscient-reader-pro/' : '/',
   server: {
     host: "::",
     port: 8080,
