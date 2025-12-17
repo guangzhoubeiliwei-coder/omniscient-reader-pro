@@ -10,13 +10,13 @@
     "orientation": "portrait-primary",
     "icons": [
         {
-            "src": "/omniscient-reader-pro/icon-192.png",
+            "src": "icon-192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "/omniscient-reader-pro/icon-512.png",
+            "src": "icon-512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
@@ -33,10 +33,10 @@
             "name": "Add New Item",
             "short_name": "Add",
             "description": "Add a new reading item",
-            "url": "/omniscient-reader-pro/?action=add",
+            "url": "./?action=add",
             "icons": [
                 {
-                    "src": "/omniscient-reader-pro/icon-192.png",
+                    "src": "icon-192.png",
                     "sizes": "192x192",
                     "type": "image/png"
                 }
@@ -46,10 +46,10 @@
             "name": "Library",
             "short_name": "Library",
             "description": "View your library",
-            "url": "/omniscient-reader-pro/?tab=library",
+            "url": "./?tab=library",
             "icons": [
                 {
-                    "src": "/omniscient-reader-pro/icon-192.png",
+                    "src": "icon-192.png",
                     "sizes": "192x192",
                     "type": "image/png"
                 }
