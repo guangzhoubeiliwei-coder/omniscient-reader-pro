@@ -1,72 +1,75 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- App Title & Description -->
-    <title>Omniscient Reader Pro</title>
-    <meta name="description" content="Elite reading tracker for manga, manhwa, novels, and comics. Offline-first, privacy-focused, no tracking." />
-    <meta name="author" content="Omniscient Reader Pro" />
 
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json" />
-    
-    <!-- Theme Colors -->
-    <meta name="theme-color" content="#3b82f6" />
-    <meta name="msapplication-TileColor" content="#3b82f6" />
-    
-    <!-- Icons -->
-    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
-    <link rel="apple-touch-icon" href="/icon-192.png" />
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Omniscient Reader Pro" />
-    <meta property="og:description" content="Elite reading tracker for manga, manhwa, novels, and comics. Offline-first, privacy-focused." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/icon-512.png" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Omniscient Reader Pro" />
-    <meta name="twitter:description" content="Elite reading tracker for manga, manhwa, novels, and comics" />
-    <meta name="twitter:image" content="/icon-512.png" />
-    
-    <!-- iOS Meta Tags -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="OmniReader" />
-  </head>
+  <!-- App Title & Description -->
+  <title>Omniscient Reader Pro</title>
+  <meta name="description"
+    content="Elite reading tracker for manga, manhwa, novels, and comics. Offline-first, privacy-focused, no tracking." />
+  <meta name="author" content="Omniscient Reader Pro" />
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- Service Worker Registration -->
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then((registration) => {
-              console.log('✅ Service Worker registered:', registration.scope);
-              
-              // Check for updates
-              registration.addEventListener('updatefound', () => {
-                const newWorker = registration.installing;
-                newWorker.addEventListener('statechange', () => {
-                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                    console.log('🔄 New version available! Refresh to update.');
-                  }
-                });
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Theme Colors -->
+  <meta name="theme-color" content="#3b82f6" />
+  <meta name="msapplication-TileColor" content="#3b82f6" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+  <link rel="apple-touch-icon" href="/icon-192.png" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Omniscient Reader Pro" />
+  <meta property="og:description"
+    content="Elite reading tracker for manga, manhwa, novels, and comics. Offline-first, privacy-focused." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/icon-512.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Omniscient Reader Pro" />
+  <meta name="twitter:description" content="Elite reading tracker for manga, manhwa, novels, and comics" />
+  <meta name="twitter:image" content="/icon-512.png" />
+
+  <!-- iOS Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="OmniReader" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/omniscient-reader-pro/sw.js')
+          .then((registration) => {
+            console.log('✅ Service Worker registered:', registration.scope);
+
+            // Check for updates
+            registration.addEventListener('updatefound', () => {
+              const newWorker = registration.installing;
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  console.log('🔄 New version available! Refresh to update.');
+                }
               });
-            })
-            .catch((error) => {
-              console.error('❌ Service Worker registration failed:', error);
             });
-        });
-      }
-    </script>
-  </body>
-</html>
+          })
+          .catch((error) => {
+            console.error('❌ Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
+</body>
 
+</html>

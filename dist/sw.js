@@ -10,11 +10,11 @@ const IMAGE_CACHE = `${CACHE_VERSION}-images`;
 
 // Assets to cache immediately on install
 const STATIC_ASSETS = [
-    '/',
-    '/index.html',
-    '/manifest.json',
-    '/icon-192.png',
-    '/icon-512.png',
+    '/omniscient-reader-pro/',
+    '/omniscient-reader-pro/index.html',
+    '/omniscient-reader-pro/manifest.json',
+    '/omniscient-reader-pro/icon-192.png',
+    '/omniscient-reader-pro/icon-512.png',
 ];
 
 // Maximum cache sizes
@@ -113,12 +113,12 @@ self.addEventListener('fetch', (event) => {
                     .catch(() => {
                         // Return offline page for navigation requests
                         if (request.destination === 'document') {
-                            return caches.match('/index.html');
+                            return caches.match('/omniscient-reader-pro/index.html');
                         }
 
                         // Return placeholder for images
                         if (request.destination === 'image') {
-                            return caches.match('/placeholder.svg');
+                            return caches.match('/omniscient-reader-pro/placeholder.svg');
                         }
                     });
             })
