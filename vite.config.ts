@@ -5,8 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Base path for GitHub Pages (change 'omniscient-reader-pro' to your repo name)
-  base: mode === 'production' ? '/omniscient-reader-pro/' : '/',
+  // No base path needed for GitHub Actions deployment
+  // base: mode === 'production' ? '/omniscient-reader-pro/' : '/',
   server: {
     host: "::",
     port: 8080,
